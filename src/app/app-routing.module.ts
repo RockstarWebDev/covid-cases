@@ -1,10 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CasesComponent } from './cases/cases.component';
+import { CasesDetailsComponent } from './cases-details/cases-details.component';
+import { AddCasesComponent } from './add-cases/add-cases.component';
+import { EditCasesComponent } from './edit-cases/edit-cases.component';
+import { CasesStatComponent } from './cases-stat/cases-stat.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'cases',
+    component: CasesComponent,
+    data: { title: 'List of cases' },
+  },
+  {
+    path: 'cases-details/:id',
+    component: CasesDetailsComponent,
+    data: { title: 'Case details' },
+  },
+  {
+    path: 'cases-stat',
+    component: CasesStatComponent,
+    data: { title: 'cases statistics' },
+  },
+  {
+    path: 'add-cases',
+    component: AddCasesComponent,
+    data: { title: 'Add cases' },
+  },
+  {
+    path: 'edit-cases',
+    component: EditCasesComponent,
+    data: { title: 'Edit cases' },
+  },
+  {
+    path: '',
+    redirectTo: '/cases',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
